@@ -18,7 +18,7 @@ app.use(express.json());
 
 const corsOptions = {
   credentials: true,
-  origin: "https://swip-tory-liard.vercel.app/",
+  origin: "https://swip-tory-liard.vercel.app",
 };
 app.use(cors(corsOptions));
 
