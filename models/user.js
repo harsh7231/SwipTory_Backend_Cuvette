@@ -24,5 +24,9 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
+userSchema.index({ username: 1 }); // Index for the username field
+userSchema.index({ "bookmarks._id": 1 }); // Index for the bookmarks array
+userSchema.index({ "likes._id": 1 }); // Index for the likes array
+
 const User = mongoose.model("UserStory", userSchema);
 module.exports = User;
