@@ -18,7 +18,7 @@ app.use(express.json());
 
 const corsOptions = {
   credentials: true,
-  origin: "https://swip-tory-liard.vercel.app/",
+  origin: "https://swip-tory-liard.vercel.app",
 };
 app.use(cors(corsOptions));
 
@@ -37,8 +37,8 @@ app.use("/api/story", storyRoutes);
 app.listen(process.env.PORT, () => {
   mongoose
     .connect(process.env.DB_CONNECT, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      //useNewUrlParser: true,         // These methods have now no effect in Node.js Driver version 4.0.0
+      //useUnifiedTopology: true,      // These methods have now no effect in Node.js Driver version 4.0.0
     })
     .then(() => {
       console.log("MongoDB Connected");
