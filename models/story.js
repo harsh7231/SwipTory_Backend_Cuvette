@@ -49,5 +49,9 @@ const storySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+storySchema.index({ addedBy: 1 }); // Index for the addedBy field
+storySchema.index({ "likes._id": 1 }); // Index for the likes array
+storySchema.index({ "bookmarks._id": 1 }); // Index for the bookmarks array
+
 const Story = mongoose.model("Story", storySchema);
 module.exports = Story;
