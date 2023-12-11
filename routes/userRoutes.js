@@ -16,7 +16,7 @@ const { isAuth } = require("../middlewares/auth.js");
 router.post("/register", register);
 router.post("/login", login);
 router.post("/logout", logoutUser);
-router.get("/load/:username", isAuth, loadUser);
+router.post("/load/:username", isAuth, loadUser);
 
 // bookmark routes
 router.post("/bookmark/:id", isAuth, bookmarkStory);
