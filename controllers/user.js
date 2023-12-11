@@ -9,6 +9,7 @@ const loadUser = async (req, res, next) => {
     const user = await User.findOne({ username });
     if (user) {
       res.json({ success: true, username: username, userId: user._id, user });
+      res.cookie("token", token, { httpOnly: true, secure: true });
     } else {
       res.status(400).json("User does not exist");
     }
