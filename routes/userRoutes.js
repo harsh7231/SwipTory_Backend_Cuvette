@@ -19,7 +19,7 @@ router.post("/logout", logoutUser);
 router.post("/load/:username", loadUser);
 
 // bookmark routes
-router.post("/bookmark/:id", isAuth, bookmarkStory);
-router.get("/bookmarks/:userId", isAuth, getAllBookmarks);
+router.post("/bookmark/:id", bookmarkStory);
+router.get("/bookmarks/:userId", getAllBookmarks);
 
 module.exports = router;
