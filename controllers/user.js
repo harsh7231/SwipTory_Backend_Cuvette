@@ -43,8 +43,8 @@ const register = async (req, res, next) => {
     });
     res.cookie("token", token, { 
       httpOnly: true, 
-      secure: true, 
-      sameSite:'Lax',
+      secure: false, 
+      sameSite:'None',
     });
     res.status(201).json({
       success: true,
@@ -85,8 +85,8 @@ const login = async (req, res, next) => {
       // set cookie
       res.cookie("token", token, { 
         httpOnly: true, 
-        secure: true, 
-        sameSite:'Lax',
+        secure: false, 
+        sameSite:'None',
       });
 
       res.status(200).json({
