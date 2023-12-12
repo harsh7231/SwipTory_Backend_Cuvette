@@ -25,7 +25,7 @@ app.use(cors(corsOptions));
 app.use(
   cookieParser(null, {
     credentials: true,
-    sameSite: "None",
+    sameSite: "Lax",
     secure: true,
   })
 );
