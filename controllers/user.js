@@ -9,7 +9,7 @@ const loadUser = async (req, res, next) => {
     const user = await User.findOne({ username });
     if (user) {
       res.json({ success: true, username: username, userId: user._id, user });
-      res.cookie("token", token, { httpOnly: true, secure: false, sameSite: "None", domain: "swip-tory-frontend-harsh7231.vercel.app"});
+      res.cookie("token", token, { httpOnly: true, secure: false, sameSite: "None" });
     } else {
       res.status(400).json("User does not exist");
     }
@@ -42,7 +42,7 @@ const register = async (req, res, next) => {
     const token = jwt.sign({ username: username }, process.env.JWT_SECRET, {
       expiresIn: "100d",
     });
-    res.cookie("token", token, { httpOnly: true, strict: true, secure: false, sameSite: "None", domain: "swip-tory-frontend-harsh7231.vercel.app" });
+    res.cookie("token", token, { httpOnly: true, strict: true, secure: false, sameSite: "None" });
 
     res.status(201).json({
       success: true,
@@ -81,7 +81,7 @@ const login = async (req, res, next) => {
         expiresIn: "10d",
       });
       // set cookie
-      res.cookie("token", token, { httpOnly: true, secure: false, sameSite: "None", domain: "swip-tory-frontend-harsh7231.vercel.app" });
+      res.cookie("token", token, { httpOnly: true, secure: false, sameSite: "None" });
 
       res.status(200).json({
         success: true,
