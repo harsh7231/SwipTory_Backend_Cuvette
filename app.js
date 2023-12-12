@@ -22,13 +22,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(
-  cookieParser(null, {
-    credentials: true,
-    sameSite: "None",
-    secure: false,
-  })
-);
+app.use(cookieParser());
 
 app.use(bodyParser.json());
 
